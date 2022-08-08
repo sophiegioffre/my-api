@@ -19,4 +19,11 @@ app.post('/products', (req, res) => {
   console.log(newProduct);
 })
 
+//products route, PUT updates specified product
+app.put('/products/:id', (req, res) => {
+  const newArray = data.map(product => product.id === +req.params.id ? req.body : product);
+  res.send(req.body);
+  console.log(newArray);
+})
+
 app.listen(serverPort, () => console.log(`Express server is running on port ${serverPort}`));

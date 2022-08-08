@@ -26,4 +26,11 @@ app.put('/products/:id', (req, res) => {
   console.log(newArray);
 })
 
+//products route, DELETE deletes specified product
+app.delete('/products/:id', (req, res) => {
+  const filteredArray = data.filter(product => product.id !== +req.params.id);
+  console.log(filteredArray);
+  res.send(`Product with id ${req.params.id} has been deleted.`);
+})
+
 app.listen(serverPort, () => console.log(`Express server is running on port ${serverPort}`));
